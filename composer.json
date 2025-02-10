@@ -1,0 +1,19 @@
+{
+    "name": "pawan/rolesperm",
+    "description": "Easy role and permission",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pawan\\Rolesperm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "pawanAXiX",
+            "email": "pawanregmi86@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
