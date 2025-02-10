@@ -1,0 +1,32 @@
+{
+    "name": "pawan/rolesperm",
+    "description": "Easy role and permission",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "pawan\\rolesperm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "pawanAXiX",
+            "email": "pawanregmi86@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0|^9.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "pawan\\rolesperm\\Provider\\GroupPermServiceProvider"
+            ]
+        }
+    }
+}
+
+
+
