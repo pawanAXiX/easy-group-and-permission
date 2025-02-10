@@ -26,7 +26,6 @@ class GroupPermServiceProvider extends ServiceProvider
                 CreatePermissionsForExistingModels::class, // Register your custom command
             ]);
         }
-
         
         $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
         Route::aliasMiddleware('rpm', CheckPermission::class);
