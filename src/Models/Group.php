@@ -10,6 +10,7 @@ use Pawan\RolesPerm\Models\GroupPermission;
 class Group extends Model
 {
     use HasFactory;
+    protected $table='groups';
 
     protected $fillable = ['name', 'description'];
 

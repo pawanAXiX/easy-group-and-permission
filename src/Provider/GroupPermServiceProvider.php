@@ -9,6 +9,8 @@ use Pawan\RolesPerm\Models\Permission;
 use Pawan\RolesPerm\Providers\EventServiceProvider;
 use Pawan\RolesPerm\Traits\HasGroupAndPerrmission;
 use Illuminate\Database\Eloquent\Model\BelongsToMany;
+use Pawan\RolesPerm\Console\Commands\MigrateRpm;
+use Pawan\RolesPerm\Console\Commands\CreatePermissionsForExistingModels;
 class GroupPermServiceProvider extends ServiceProvider
 {
     public function boot()
@@ -17,8 +19,15 @@ class GroupPermServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/rolesgroup.php' => config_path('rolesgroup.php'),
         ], 'config');
-        $userModelClass=config('rolesgroup.user_model');
 
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MigrateRpm::class,
+                CreatePermissionsForExistingModels::class, // Register your custom command
+            ]);
+        }
+
+        
         $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
         Route::aliasMiddleware('rpm', CheckPermission::class);
         

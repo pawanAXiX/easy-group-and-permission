@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class UserGroup extends Model
 {
     use HasFactory;
-
+    protected $table='user_groups';
     protected $fillable = ['user_id', 'group_id'];
 
     public function user()

@@ -8,6 +8,7 @@ use Pawan\RolesPerm\Models\Permission;
 class UserPermission extends Model
 {
     use HasFactory;
+    protected $table='user_permissions';
     protected $fillable=['user','permission'];
 
     public function user()
