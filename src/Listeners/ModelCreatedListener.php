@@ -4,7 +4,7 @@ namespace Pawan\RolesPerm\Listeners;
 use Illuminate\Console\Events\CommandStarting;
 use Illuminate\Support\Facades\Log;
 use Pawan\RolesPerm\Models\Permission; // Reference your Permission model
-
+use Pawan\RolesPerm\Services\PermissionService;
 class ModelCreatedListener
 {
     public function handle(CommandStarting $event)
@@ -24,16 +24,9 @@ class ModelCreatedListener
 
     protected function createPermission($modelName)
     {
-        $permission_type=['create', 'update', 'delete','read'];
-        foreach ($permission_type as $type) {
-            Permission::create([
-                'name' =>$permission_type.' '.strtolower($modelName).' data',
-                'content_type' => $modelName,
-                'codename' => $permission_type.'_'.strtolower($modelName),
-            ]);
-    
-        }
-        
+        // $permission_type=['create', 'update', 'delete','read'];
+        $permissionService = new PermissionService();
+        $permissionService->createPermissionForModel($modelName);
         Log::info("Permission created for model: $modelName");
     }
 }

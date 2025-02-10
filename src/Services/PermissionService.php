@@ -24,7 +24,6 @@ class PermissionService
                     'codename' => $permission_type.'_'.strtolower($modelName),
                 ]);
             }
-            $this->info("Created permission for model: " . $modelClass);
         }
     }
 }

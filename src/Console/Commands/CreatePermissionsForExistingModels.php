@@ -56,6 +56,5 @@ class CreatePermissionsForExistingModels extends Command
         $permissionService = new PermissionService();
         $permissionService->createPermissionForModel($modelClass);
 
-        $this->info("Created permission for model: " . $modelClass);
     }
 }

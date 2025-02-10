@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Pawan\\Rolesperm\\": "src/"
+            "pawan\\rolesperm\\": "src/"
         }
     },
     "authors": [
@@ -15,5 +15,18 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0|^9.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "pawan\\rolesperm\\Provider\\GroupPermServiceProvider"
+            ]
+        }
+    }
 }
+
+
+
